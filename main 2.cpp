@@ -1,3 +1,5 @@
+//This file contain sprograms about the inheritance and its types and polymorphism,run time poly morphism,inheritence ambigrity etc...
+
 #include <iostream>
 using namespace std;
 
