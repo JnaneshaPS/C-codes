@@ -1,3 +1,4 @@
+//oops conceps such as constrcutros and its types and destructors
 #include<iostream>
 #include<cstring>
 using namespace std;
