@@ -153,4 +153,145 @@ int main()
 
     return 0;
 }
+//implementaion of double linked list 
 
+#include <iostream>
+
+using namespace std;
+
+class Node
+{
+    public:
+    int data;
+    Node* prev;
+    Node* next;
+
+    Node(int d)
+    {
+        this->data=d;
+        this->prev=NULL;
+        this->next=NULL;
+    }
+};
+
+void print(Node* head)
+{
+    Node* temp=head;
+    while(temp!=NULL)
+    {
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+    cout<<endl;
+}
+
+//get the kength of the linked list
+int getLength(Node* head)
+{
+    int len=0;
+      Node* temp=head;
+    while(temp!=NULL)
+    {
+        len++;
+        temp=temp->next;
+    }
+    return len;
+}
+//insertion of data to the head position double kinked list
+void insertAtHead(Node* &head,Node* &tail,int d)
+{
+    if(head==NULL)
+    {
+        Node* temp=new Node(d);
+        head=temp;
+        tail=temp;
+    }
+    
+    else{
+    Node* temp=new Node(d);
+    
+    temp->next=head;
+    head->prev=temp;
+    head=temp;
+    }
+}
+//insertion of the element to tail position in doubly linked list
+void insertAtTail(Node* &tail,Node* &head,int d)
+{
+    if(tail==NULL)
+    {
+        Node* temp =new Node(d);
+        tail=temp;
+        head=temp;
+    }
+    else{
+    Node* temp=new Node(d);
+    tail->next=temp;
+    temp->prev=tail;
+    tail=temp; 
+    }
+}
+
+//insert at any position in double linked list
+
+void insertAtPosition(Node* &tail,Node* &head,int position,int d)
+{
+    if(position==1)
+    {
+        insertAtHead(head,tail,d);
+        return;
+    }
+    Node* temp=head;
+    int cnt=0;
+    while(cnt<position-1)
+    {
+        temp=temp->next;
+        cnt++;
+    }
+    
+    if(temp->next==NULL)
+    {
+        insertAtTail(tail,head,d);
+        return;
+    }
+    Node* nodeToinsert=new Node(d);
+    nodeToinsert->next=temp->next;
+    temp->next->prev=nodeToinsert;
+    temp->next=nodeToinsert;
+    nodeToinsert->prev=temp;
+}
+
+
+
+int main()
+{
+    Node* head=NULL;
+    Node* tail=NULL;
+    print(head);
+    cout<<"lenth of the linked list is->"<<getLength(head)<<endl;
+    
+    insertAtHead(head,tail,12);
+    print(head);
+    
+    insertAtHead(head,tail,18);
+    print(head);
+    
+    insertAtHead(head,tail,15);
+    print(head);
+    
+    insertAtTail(tail,head,16);
+    print(head);
+    
+    insertAtPosition(tail,head,3,14);
+    print(head);
+    
+    cout<<"head is"<<head->data<<endl;
+    cout<<"tail is"<<tail->data<<endl;
+    
+    insertAtPosition(tail,head,4,14);
+    print(head);
+    
+    
+    return 0;
+    
+}
