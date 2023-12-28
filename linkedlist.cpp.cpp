@@ -155,6 +155,7 @@ int main()
 }
 //implementaion of double linked list 
 
+
 #include <iostream>
 
 using namespace std;
@@ -171,6 +172,16 @@ class Node
         this->data=d;
         this->prev=NULL;
         this->next=NULL;
+    }
+    ~Node()
+    {
+        int val=this->data;
+        if(next!=NULL)
+        {
+            delete next;
+            next=NULL;
+        }
+        cout<<"memory is free for the data with value->"<<val<<endl;
     }
 };
 
@@ -198,47 +209,30 @@ int getLength(Node* head)
     return len;
 }
 //insertion of data to the head position double kinked list
-void insertAtHead(Node* &head,Node* &tail,int d)
+void insertAtHead(Node* &head,int d)
 {
-    if(head==NULL)
-    {
-        Node* temp=new Node(d);
-        head=temp;
-        tail=temp;
-    }
-    
-    else{
     Node* temp=new Node(d);
     
     temp->next=head;
     head->prev=temp;
     head=temp;
-    }
 }
 //insertion of the element to tail position in doubly linked list
-void insertAtTail(Node* &tail,Node* &head,int d)
+void insertAtTail(Node* &tail,int d)
 {
-    if(tail==NULL)
-    {
-        Node* temp =new Node(d);
-        tail=temp;
-        head=temp;
-    }
-    else{
     Node* temp=new Node(d);
     tail->next=temp;
     temp->prev=tail;
     tail=temp; 
-    }
 }
 
-//insert at any position in double linked list
+//insert at any position in double linked list 
 
 void insertAtPosition(Node* &tail,Node* &head,int position,int d)
 {
     if(position==1)
     {
-        insertAtHead(head,tail,d);
+        insertAtHead(head,d);
         return;
     }
     Node* temp=head;
@@ -251,7 +245,7 @@ void insertAtPosition(Node* &tail,Node* &head,int position,int d)
     
     if(temp->next==NULL)
     {
-        insertAtTail(tail,head,d);
+        insertAtTail(tail,d);
         return;
     }
     Node* nodeToinsert=new Node(d);
@@ -260,38 +254,68 @@ void insertAtPosition(Node* &tail,Node* &head,int position,int d)
     temp->next=nodeToinsert;
     nodeToinsert->prev=temp;
 }
-
-
+void deletePosition(int position,Node* &head)
+{
+    //to delete the first node or start node
+    if(position==1)
+    {
+        Node* temp=head;
+        temp->prev->next=NULL;
+        head=head->next;
+        //memory free of start node
+        temp->next=NULL;
+        delete temp;
+    }
+    else
+    {
+        //deleting middle or last node
+        Node* curr=head;
+        Node* prev=NULL;
+        
+        int cnt=1;
+        while(cnt<=position)
+        {
+            prev=curr;
+            curr=curr->next;
+            cnt++;
+        }
+        curr->prev=NULL;
+        prev->next=curr->next;
+        curr->next=NULL;
+        delete curr;
+        
+    }
+}
 
 int main()
 {
-    Node* head=NULL;
-    Node* tail=NULL;
+    Node* node1=new Node(10);
+    Node* head=node1;
+    Node* tail=node1;
     print(head);
     cout<<"lenth of the linked list is->"<<getLength(head)<<endl;
     
-    insertAtHead(head,tail,12);
+    insertAtHead(head,12);
     print(head);
     
-    insertAtHead(head,tail,18);
+    insertAtHead(head,18);
     print(head);
     
-    insertAtHead(head,tail,15);
+    insertAtHead(head,15);
     print(head);
     
-    insertAtTail(tail,head,16);
+    insertAtTail(tail,16);
     print(head);
-    
-    insertAtPosition(tail,head,3,14);
-    print(head);
-    
-    cout<<"head is"<<head->data<<endl;
-    cout<<"tail is"<<tail->data<<endl;
     
     insertAtPosition(tail,head,4,14);
     print(head);
     
+    //delete the element in doublr linked list
+    deletePosition(3,head);
+    print(head);
     
+    cout<<"head is"<<head->data<<endl;
+    cout<<"tail is"<<tail->data<<endl;
     return 0;
     
 }
