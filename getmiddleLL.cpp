@@ -1,5 +1,5 @@
 
-//middle of linked list
+//middle of linked lisT
 #include<iostream>
 
 using namespace std;
