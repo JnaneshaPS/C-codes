@@ -70,7 +70,7 @@ Node* floydDetect(Node* head)
     
     
     Node* slow=head;
-    Node* fast=head;
+    Node* fast=head; 
     
     while(slow!=NULL&&fast!=NULL)
     {
@@ -83,10 +83,50 @@ Node* floydDetect(Node* head)
         
         if(slow==fast)
         {
+            //getting the data where the loop is present
+            cout<<"loop is present in th eposition"<<slow->data<<endl;
             return slow;
         }
     }
     return false;
+}
+
+//starting node of the linked list
+
+Node* getStartingNode(Node* head)
+{
+    if(head==NULL)
+      return false;
+      
+      Node* intersection=floydDetect(head);
+      
+      Node* slow=head;
+      
+      while(slow!=intersection)
+      {
+          slow=slow->next;
+          intersection=intersection->next;
+      }
+      return slow;
+      
+        }
+
+//remove the loop
+
+void removeloop(Node* head)
+{
+    if(head==NULL)
+    return false;
+    
+    Node* startNode=getStartingNode(head);
+    Node* temp=starNode;
+    
+    while(temp->next!=startNode)
+    {
+        temp=temp->next;
+        
+    }
+    temp->next=NULL;
 }
 
 int main()
@@ -117,4 +157,8 @@ else
     else{
         cout<<"floyd loop is not present in the loop"<<endl; 
     }
+    
+    cout<<"loop is starting at"<<getStartingNode(head)->data<<endl;
+    
+    removeloop(head);
 }
