@@ -1,4 +1,4 @@
-//c
+//c++ code to remove duplicates in sorted linked list
 #include<iostream>
 
 using namespace std;
