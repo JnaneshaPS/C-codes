@@ -1,4 +1,4 @@
-
+//c
 #include<iostream>
 
 using namespace std;
@@ -58,9 +58,10 @@ Node* uniqusortedList(Node* head)
 
 int main()
 {
+    Node* head=NULL;
+    //instert element to the linked list
     
-    
-    
+    uniquesortedList(head);
     
     
     return 0;
