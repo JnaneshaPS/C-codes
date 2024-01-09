@@ -54,6 +54,7 @@ Node* uniqusortedList(Node* head)
             curr=curr->next;
         }
     }
+    return head;
 }
 
 int main()
