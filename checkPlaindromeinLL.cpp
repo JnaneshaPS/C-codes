@@ -1,4 +1,4 @@
-//srt 0,1,2 in the linked list
+//checking th egiven linked list is a palindrom or not
 
 #include <iostream>
 #include<vector>
