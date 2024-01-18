@@ -53,7 +53,7 @@ bool ispalindrome(Node* head)
     while(temp!=NULL)
     {
         arr.push_back(temp->data);
-        temp=temp->data;
+        temp=temp->next;
     }
     return checkPalindrome(arr); 
 }
