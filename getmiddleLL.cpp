@@ -36,7 +36,7 @@ Node* getMiddle(Node* head)
     while(fast!=NULL)
     {
         fast=fast->next;
-        if(fast!=NULL)
+        if(fast->next!=NULL)
         {
             fast=fast->next;
         }
