@@ -6,7 +6,7 @@
 using namespace std;
 int main()
 {
-    //creating the stack
+    //creating the Stack
     stack <int> s;
     
     //pushing the element into the stack
