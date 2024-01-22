@@ -1,5 +1,5 @@
 
-//introduction to new data stracture thae is Stack which is is called LIFO(Last in First Out)
+//introduction to new data stracture thae is stack which is is called LIFO(Last in First Out)
 #include<iostream>
 #include<stack>
 
