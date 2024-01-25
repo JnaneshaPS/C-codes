@@ -13,7 +13,7 @@ int main()
     s.push(10);
     s.push(29);
     
-    //poping the element from the stack
+    //Poping the element from the stack
     s.pop();
     //printing the top element
     cout<<"top element is->"<<" "<<s.top()<<endl;
