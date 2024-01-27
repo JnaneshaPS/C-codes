@@ -1,4 +1,4 @@
-//add two number in the linked list
+//add two number in the linked List
 
 #include <iostream>
 #include<vector>
