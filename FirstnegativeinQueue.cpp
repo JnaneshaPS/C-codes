@@ -1,4 +1,4 @@
-//First negative integer in every window of k
+//First negative integer in every window of K
 #include<iostream>
 #include<queue>
 
