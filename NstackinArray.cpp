@@ -1,4 +1,4 @@
-//finding the celbrity in the part:celebrity is one who is famous in the party
+//finding the celbrity in the part:celebrity is one who is famous in the Party
 
 #include<iostream>
 #include<stack>
