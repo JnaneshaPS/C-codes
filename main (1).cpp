@@ -1,4 +1,4 @@
-
+//sum of maximum and minimumm elements in the subarrays of k
 #include <iostream>
 #include<queue> 
 
