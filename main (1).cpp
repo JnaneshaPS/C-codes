@@ -1,3 +1,4 @@
+//number of leafs in the binary-tree
 #include<iostream>
 #include<queue>
 using namespace std;
