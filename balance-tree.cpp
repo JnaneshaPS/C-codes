@@ -1,4 +1,4 @@
-//check for the balanced tree
+//check for the balanced binary tree
 
 #include<iostream>
 
