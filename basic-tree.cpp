@@ -1,4 +1,4 @@
-//basic binary tree opertaion such  as 4 level of tranversing inorder,pre-order,post-order,levelorder transversal
+//basic binary tree opertaion such  as 4 level of tranversing inorder,pre-order,post-order,levelorder transversaL
 #include<iostream>
 #include<queue>
 using namespace std;
