@@ -1,5 +1,5 @@
 
-//implentaion of 2 stacks
+//implentaion of 2 stack
 
 #include<iostream>
 
