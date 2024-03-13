@@ -1,4 +1,4 @@
-//finding next smaller element in the stack
+//finding next smaller element in the stcak
 
 #include<iostream>
 #include<stack>
