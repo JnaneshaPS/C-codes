@@ -19,36 +19,35 @@ struct Node {
 
 class Solution {
 public:
-    void solve(Node* root, int k, int &count, int sum, unordered_map<int, int> &prefixSums) {
-        if (root == nullptr)
-            return;
+    void solve(Node* root, int k, int &count, vector<int> path) {
+        if (root == NULL)
+            return NULL;
 
-        // Update the current sum by adding the current node's value
-        sum += root->data;
+        //push the element to vector and store there
+           path.push_back(root->data);
 
-        // If the sum is equal to k, increment the count
-        if (sum == k)
-            count++;
+        //transverse in the left path
+        solve(root->left,k,count,path);
+         //transverse in the right part
+       solve(root->right,k,count,path);
 
-        // If the difference (sum - k) exists in the prefix sums map, add its count to the total count
-        if (prefixSums.find(sum - k) != prefixSums.end())
-            count += prefixSums[sum - k];
-
-        // Increment the count of the current sum in the prefix sums map
-        prefixSums[sum]++;
-
-        // Recursively traverse the left and right subtrees
-        solve(root->left, k, count, sum, prefixSums);
-        solve(root->right, k, count, sum, prefixSums);
-
-        // Decrement the count of the current sum in the prefix sums map (backtracking)
-        prefixSums[sum]--;
+      int size=path.size();
+       int sum=0;
+     for(int i=size;i>0;i--)
+      {
+          sum=sum+path[i];
+          if(k==sum)
+          {
+           count++;
+          }
+       return count;
     }
-
+     path.pop_back();
+    }
     int sumK(Node* root, int k) {
-        unordered_map<int, int> prefixSums; // Map to store prefix sums and their counts
-        int count = 0; // Initialize count of paths with sum equal to k
-        solve(root, k, count, 0, prefixSums); // Call the recursive function
-        return count;
+         vector<int> path;          
+        int count = 0;
+        solve(root, k, count,path); // Call the recursive function
+        
     }
 };
