@@ -1,0 +1,26 @@
+class Solution {
+  public:
+    int minRow(int n, int m, vector<vector<int>> a) {
+        // code here
+        int minOnesRow = -1; // Initialize with an invalid index
+    int minOnesCount = INT_MAX; // Initialize with maximum possible value
+
+    // Iterate over each row
+    for (int i = 0; i < n; ++i) {
+        int onesCount = 0;
+        // Count the number of ones in the current row
+        for (int j = 0; j < m; ++j) {
+            if (a[i][j] == 1) {
+                onesCount++;
+            }
+        }
+        // Update the minimum ones count and corresponding row index
+        if (onesCount < minOnesCount) {
+            minOnesCount = onesCount;
+            minOnesRow = i + 1; // Since indices are 1-based
+        }
+    }
+
+    return minOnesRow;
+    }
+};
