@@ -1,4 +1,52 @@
+class TrieNode {
+public:
+    char data;
+    TrieNode* children[26];
+    bool isTerminal;
 
+    TrieNode(char ch) {
+        data = ch;
+        for (int i = 0; i < 26; i++) {
+            children[i] = NULL;
+        }
+        isTerminal = false;
+    }
+};
+
+class Trie {
+public:
+    TrieNode* root;
+
+    Trie() {
+        root = new Trienode('\0');
+    }
+
+    void insertUtil(Trienode* root, const std::string& word) {
+        if (word.size() == 0) {
+            root->isTerminal = true;
+            return;
+        }
+
+        // Assumption that word will be in caps
+        int index = word[0] - 'A';
+        Trienode* child;
+
+        // Present
+        if (root->children[index] != NULL) {
+            child = root->children[index];
+        }
+        // Absent
+        else {
+            child = new Trienode(word[0]);
+            root->children[index] = child;
+        }
+        // Recursive call
+        insertUtil(child, word.substr(1));
+    }
+
+    void insertWord(const std::string& word) {
+        insertUtil(root, word);
+    }
 
 
 
