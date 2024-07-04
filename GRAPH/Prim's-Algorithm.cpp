@@ -1,4 +1,4 @@
-
+//
 
 vector<pair<pair<int,int>,int>> caluclatePrimsMST(int n,int m,vector<pair<pair<int,int>,int>> &g)
 {
@@ -33,6 +33,7 @@ for(int i=1;i,n;i++)
    int mini=INT_MAX;
   int u=0;
    //find the minimum node
+   //replace the loop with priority_queue to reduce time complexity
    for(int v=0;v<=n;v++)
 {
    if(mst[v]==false&&key[v}<mini)
@@ -51,6 +52,7 @@ for(auto it:adj[u])
      int u=it.second;
    if(mst[v]==false&&w<key[v])
 {
+   //push for the prority_queue heare for the reducing time complexity
    parent[v]=u;
   key[v]=w;
     }
