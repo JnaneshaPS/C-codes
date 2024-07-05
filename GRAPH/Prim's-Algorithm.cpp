@@ -21,7 +21,7 @@ vector<int> key(n+1);
 for(int i=0;i<n;i++)
 {
    key[i]=INT_MAX;
-   parent[i]=-1;
+   parent[i]=1;
   mst[i]=-1;
 }
 
