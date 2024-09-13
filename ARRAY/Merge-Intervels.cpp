@@ -3,6 +3,8 @@
 
 vector<vector<int>> mergeIntervels(vector<int> &intervels)
 {
+  if(intervels.empty())
+    return {};
 int n=intervels.size();
               vector<vector<int>> merge;
       sort(intervels.begin(),intervels.end();
