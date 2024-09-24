@@ -6,7 +6,11 @@ void backtrack(vector<int> &nums,vector<vector<int>> &result,vector<int> &combin
 {
                 result.push_back(combination);
                for(int i=start;i<nums.size();i++)
-{
+{          
+                      if(i>0&&nums[i-1]==nums[i])
+                      {
+             continue;
+                      }
                 combination.push_back(nums[i]);
            backtrack(nums,result,combination,i+1);
               combination.pop_back();
