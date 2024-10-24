@@ -8,7 +8,7 @@
 
 int superUgly(int n,vector<int> &primes)
 {
-    int n=nums,size();
+    int k=primes.size();
 if(primes.empty())
   return 0;
 if(n=1)
@@ -18,8 +18,8 @@ vector<int> ugly(n);
 
 ugly[0]=primes[0];
 
-vector<int> next(n);
-vector<int> indicea(n,0);
+vector<int> next(k);
+vector<int> indices(k,0);
 
 for(int i=0;i<n;i++)
 {
