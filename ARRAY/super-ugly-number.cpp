@@ -16,7 +16,7 @@ if(n=1)
 
 vector<int> ugly(n);
 
-ugly[0]=primes[0];
+ugly[0]=1;
 
 vector<int> next(k);
 vector<int> indices(k,0);
