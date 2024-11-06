@@ -22,5 +22,6 @@ for(const auto& person:people)
 {
     queue.insert(ans.begin()+person[1],person);
 }
+   return ans;
 }
 
