@@ -13,6 +13,10 @@ for(int i=0;i<nums.size();i++)
 }
 
 int half_sum=total_sum/2;
+    if(half_sum%2!=0)
+    {
+   return 0;
+    }
 vector<bool> dp(half_sum+1,false;
 for(int num:nums)
 {
