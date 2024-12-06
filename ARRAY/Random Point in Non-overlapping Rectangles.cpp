@@ -13,7 +13,7 @@ class Solution
   vector<int> PrefixArea;
    int totalArea;
 
-Solution()
+Solution(vector<vector<int>> &rects)
 {
     this.rects=rects;
       PrefixArea.reserve(rects.size());
