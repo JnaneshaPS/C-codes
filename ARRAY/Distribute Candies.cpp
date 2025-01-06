@@ -7,6 +7,7 @@
 
 int distriCandy(vector<int> &CandyType)
 {
+    int n=CandyType.size();
     unordered_map<int> candy(CandyType.begin(),CandyType.end());
 
  int maxCandy=n/2;
