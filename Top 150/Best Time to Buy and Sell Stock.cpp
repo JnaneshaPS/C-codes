@@ -10,7 +10,7 @@ int maxProfit(vector<int> &prices)
 for(int price:prices)
 {
     minPrice=min(minPrice,price);
-   maxProfit=max(maxProfit,price);
+   maxProfit=max(maxProfit,price-minPrice);
 }
 
 return maxProfit;
