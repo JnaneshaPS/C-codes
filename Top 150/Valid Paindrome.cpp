@@ -12,7 +12,7 @@ while(left<right)
 
    while(left<right&&!isalnum(s[right])) right++;
 
- if(tolower(s[left])!=tollower(s[right])) return fasle;
+ if(tolower(s[left])!=tolower(s[right])) return fasle;
 
 left++;
 right--;
