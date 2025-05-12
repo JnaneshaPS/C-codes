@@ -10,7 +10,7 @@ while(left<right)
 {
      while(left<right&&!isalnum(s[left])) left++;
 
-   while(left<right&&!isalnum(s[left])) right++;
+   while(left<right&&!isalnum(s[right])) right++;
 
  if(tolower(s[left])!=tollower(s[right])) return fasle;
 
